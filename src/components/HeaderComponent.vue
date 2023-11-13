@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>Header</h1>
+    <div class="headerBg">
+        <h1>Yu-Gi-Ho Api</h1>
     </div>
 </template>
 

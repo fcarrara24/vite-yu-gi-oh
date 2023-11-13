@@ -1,8 +1,15 @@
 <template>
     <div>
         <h2>Main</h2>
-        <CardComponent v-for="card in store.cardResponse" :name="card.name" :image_url="card.card_images[0].image_url"
-            :archetype="card.archetype" />
+        <div class="container bg-white p-5 ">
+            <div class="w-100  result bg-black  ">result</div>
+            <div class="cardContainer d-flex flex-row flex-wrap justify-content-between  ">
+                <CardComponent v-for="card in store.cardResponse" :name="card.name"
+                    :image_url="card.card_images[0].image_url" :archetype="card.archetype" class="myCard  pt-0  " />
+            </div>
+
+        </div>
+
     </div>
 </template>
 

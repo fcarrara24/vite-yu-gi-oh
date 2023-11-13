@@ -1,2 +1,52 @@
 @use './partials/variables' as *;
 @import 'bootstrap/scss/bootstrap';
+
+.allBg {
+    background-color: $bg-orange;
+}
+
+.headerBg {
+    background-color: white;
+
+}
+
+.result {
+    color: white;
+    background-color: black;
+    width: 100%;
+    height: 50px;
+}
+
+.myCard {
+    width: calc(100% / 5 - 10px);
+    padding-bottom: 10px;
+
+}
+
+.cardBg {
+    background: linear-gradient(90deg, rgb(185, 98, 11) 0%, rgb(205, 18, 18));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.imgContainer {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}

@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="loadingScreen d-flex flex-row justify-content-center align-items-center" v-if="!loaded">
+    <h1>loading</h1>
+  </div>
+  <div class="allBg" v-else>
     <HeaderComponent />
     <MainComponent />
     <FooterComponent />
@@ -17,6 +20,8 @@ export default {
   data() {
     return {
       store,
+      loaded: false,
+      timeOut: '',
     };
   },
   methods: {
@@ -26,10 +31,15 @@ export default {
         .then((response) => {
           store.cardResponse = response.data.data;
           console.log(store.cardResponse);
+          this.timeOut = setTimeout(this.timended(), 3000)
         })
         .catch(error => {
           console.log(error);
         });
+    },
+    timended() {
+      clearTimeout(this.timeOut)
+      this.loaded = true
     }
   },
   created() {
