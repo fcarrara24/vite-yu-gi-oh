@@ -1,8 +1,8 @@
 <template>
-  <div class="loadingScreen d-flex flex-row justify-content-center align-items-center" v-if="!loaded">
+  <div class="loadingScreen d-flex flex-row justify-content-center align-items-center" v-show="!loaded">
     <h1>loading</h1>
   </div>
-  <div class="allBg" v-else>
+  <div class="allBg" v-show="loaded">
     <HeaderComponent />
     <MainComponent />
     <FooterComponent />
