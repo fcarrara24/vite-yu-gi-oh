@@ -47,3 +47,7 @@ vue doc (c'è anche un link al video) https://vuejs.org/guide/components/events.
 altri video utili: https://www.vuemastery.com/courses/intro-to-vue-3/communicating-events-vue3
 https://vueschool.io/lessons/vue-3-communication-between-vue-components-with-custom-events
 Documentazione API per esercizio : https://ygoprodeck.com/api-guide/
+
+# steps
+
+configured project installations (bootstrap, scss)
