@@ -1,17 +1,17 @@
 <template>
-  <div class="loadingScreen d-flex flex-row justify-content-center align-items-center" v-show="!loaded">
+  <div class="loadingScreen d-flex flex-row justify-content-center align-items-center" v-if="!loaded">
     <h1>loading</h1>
   </div>
   <div class="allBg" v-show="loaded">
     <HeaderComponent />
-    <MainComponent />
+    <MainComponent @changed-array="fillStore()" />
     <FooterComponent />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import { store } from './data/store.js'
+import { store, storeArchetype } from './data/store.js'
 import MainComponent from './components/MainComponent.vue'
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
@@ -26,12 +26,30 @@ export default {
   },
   methods: {
     fillStore() {
+      this.loaded = false;
+
       axios
-        .get(store.partialUrl + store.offset)
+        .get(store.partialUrl + store.offset + store.archetype)
         .then((response) => {
           store.cardResponse = response.data.data;
-          console.log(store.cardResponse);
           this.timeOut = setTimeout(this.timended(), 3000)
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    loadArchetype() {
+      axios
+        .get(storeArchetype.Url)
+        .then((response) => {
+          console.log(response.data.data)
+          response.data.data.forEach(element => {
+            if (!storeArchetype.archeTypeResponse.includes(element.archetype)) {
+              storeArchetype.archeTypeResponse.push(element.archetype)
+            }
+          });
+
+          console.log(storeArchetype)
         })
         .catch(error => {
           console.log(error);
@@ -44,7 +62,10 @@ export default {
   },
   created() {
     this.fillStore();
+    // this.loadArchetype();
+
   },
+
   components: { MainComponent, HeaderComponent, FooterComponent }
 }
 </script>

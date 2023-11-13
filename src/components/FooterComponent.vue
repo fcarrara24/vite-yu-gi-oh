@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h3>Footer</h3>
+    <div class="d-flex flex-row justify-content-center  ">
+        <div class="button bg-primary p-2">Carica</div>
     </div>
 </template>
 

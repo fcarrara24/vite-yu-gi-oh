@@ -4,11 +4,11 @@
             <div class="imgContainer">
                 <img :src="image_url" alt="">
             </div>
-            <div class="d-flex flex-column justify-content-between ">
-                <div class="name text-white text-uppercase">
+            <div class="d-flex flex-column justify-content-between p-2">
+                <div class="name text-white text-uppercase text-center">
                     {{ name }}
                 </div>
-                <div class="species">
+                <div class="species text-center">
                     {{ archetype }}
                 </div>
             </div>

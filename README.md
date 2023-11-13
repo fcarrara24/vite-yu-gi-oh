@@ -51,3 +51,8 @@ Documentazione API per esercizio : https://ygoprodeck.com/api-guide/
 # steps
 
 configured project installations (bootstrap, scss)
+
+# passaggi per domani:
+mi sono portato avanti creando un filtro per dividere gli archetipi di yu gi ho.
+Ci sono circa 12.000 carte, e un totale di più di 500 archetipi, fare un mapping di tutte le carte è computazionalmente dispendioso ( col mio computer si parla di circa 10 secondi ), quindi ho deciso di analizzare tutte le carte di yu gi ho solo una volta e caricare l'array delle opzioni all'interno dei data archetypeList. in futuro, quando saremo in grado di modificare attivamente il codice, immagino potremo analizzare l'array delle risposte a partire dall'ultima posizione e eventualmente aggiungere a partire dall'ultima posizione i nuovi archetipi, mantenendo in memoria la lunghezza dell'array di partenza come offset.
+detto ciò, mi ritengo comunque soddisfatto del lavoro fin'ora e domani aggiusterò sia il codice eliminando i metodi deprecati, sia la documetazione per renderla più digeribile.
