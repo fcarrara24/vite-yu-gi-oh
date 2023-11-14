@@ -1,6 +1,8 @@
-<template>
-    <div class="d-flex flex-row justify-content-center  ">
-        <div class="button bg-primary p-2">Carica</div>
+<template class>
+    <div class="d-flex flex-row justify-content-between container">
+        <div class="button bg-primary p-2">↞</div>
+        <div class="button bg-primary p-2">↠</div>
+
     </div>
 </template>
 
@@ -11,6 +13,11 @@ export default {
 
 
         return {}
+    },
+    methods: {
+        increaseOffset() {
+
+        }
     }
 }
 </script>

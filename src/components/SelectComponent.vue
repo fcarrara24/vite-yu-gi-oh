@@ -23,7 +23,6 @@ export default {
     },
     methods: {
         changeArray() {
-            console.log(this.selectedOption)
             this.$emit('changed-array', this.selectedOption)
         }
     }

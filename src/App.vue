@@ -5,7 +5,7 @@
   </div>
   <div class="allBg" v-show="loaded">
     <HeaderComponent />
-    <SelectComponent @changed-array="fillStore()" />
+    <SelectComponent @changed-array="fillStore" />
     <MainComponent />
     <FooterComponent />
   </div>
@@ -29,9 +29,10 @@ export default {
   },
   methods: {
     fillStore(archetype) {
+      console.log(archetype)
       this.loaded = false;
       //creazione dell'archetipo 
-      if (archetype) {
+      if (archetype !== "") {
         this.store.endPoint.archetype = archetype
       } else {
         this.store.endPoint.archetype = null
@@ -56,17 +57,15 @@ export default {
     //   axios
     //     .get(storeArchetype.Url)
     //     .then((response) => {
-    //       console.log(response.data.data)
     //       response.data.data.forEach(element => {
     //         if (!storeArchetype.archeTypeResponse.includes(element.archetype)) {
     //           storeArchetype.archeTypeResponse.push(element.archetype)
     //         }
     //       });
 
-    //       console.log(storeArchetype)
     //     })
     //     .catch(error => {
-    //       console.log(error);
+    //       
     //     });
     // },
     loadArchetypeArray() {
@@ -78,7 +77,7 @@ export default {
             return element.archetype_name
           })
         })
-      console.log(store.archetypeArray);
+      //console.log(store.archetypeArray);
     },
     timended() {
       clearTimeout(this.timeOut)
@@ -86,8 +85,12 @@ export default {
     }
   },
   created() {
-    this.fillStore("");
-    this.loadArchetypeArray();
+    // this.fillStore("");
+    // this.loadArchetypeArray();
+    Promise.all(this.fillStore(""), this.loadArchetypeArray())
+      .then(() => {
+        this.loaded = true
+      })
     // this.loadArchetype();
 
   },
