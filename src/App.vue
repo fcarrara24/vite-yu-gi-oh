@@ -7,7 +7,7 @@
     <HeaderComponent />
     <SelectComponent @changed-array="fillStore" />
     <MainComponent />
-    <FooterComponent />
+    <FooterComponent @refreshed-array="fillStore" />
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
       console.log(archetype)
       this.loaded = false;
       //creazione dell'archetipo 
-      if (archetype !== "") {
+      if (archetype !== "" && archetype !== null) {
         this.store.endPoint.archetype = archetype
       } else {
         this.store.endPoint.archetype = null
@@ -47,6 +47,10 @@ export default {
         })
         .catch(error => {
           console.log(error);
+          if (offset >= 20) {
+            store.offset -= 20
+            fillStore(this.archetype)
+          }
         })
         .finally(() => {
           this.timeOut = setTimeout(this.timended(), 3000)
