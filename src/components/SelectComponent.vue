@@ -24,8 +24,7 @@ export default {
     methods: {
         changeArray() {
             console.log(this.selectedOption)
-            store.changeArchetype(this.selectedOption)
-            this.$emit('changed-array')
+            this.$emit('changed-array', this.selectedOption)
         }
     }
 }

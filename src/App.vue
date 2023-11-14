@@ -28,11 +28,18 @@ export default {
     };
   },
   methods: {
-    fillStore() {
+    fillStore(archetype) {
       this.loaded = false;
+      //creazione dell'archetipo 
+      if (archetype) {
+        this.store.endPoint.archetype = archetype
+      } else {
+        this.store.endPoint.archetype = null
+      }
+
 
       axios
-        .get(store.partialUrl + store.offset + store.archetype)
+        .get(store.partialUrl + store.midPoint.cardInfo, { params: store.endPoint })
         .then((response) => {
           store.cardResponse = response.data.data;
 
@@ -62,13 +69,16 @@ export default {
     //       console.log(error);
     //     });
     // },
+    loadArchetypeArray() {
+
+    },
     timended() {
       clearTimeout(this.timeOut)
       this.loaded = true
     }
   },
   created() {
-    this.fillStore();
+    this.fillStore("");
     // this.loadArchetype();
 
   },
