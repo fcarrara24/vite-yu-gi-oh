@@ -5,7 +5,7 @@ export const store = reactive({
     offset: "?num=20&offset=0",
     midPoint: {
         cardInfo: "cardinfo.php/",
-        archetypeUrl: "archetype.php/"
+        archetypeUrl: "archetypes.php"
     },
     endPoint: {
         num: "20",
@@ -15,14 +15,6 @@ export const store = reactive({
 
     cardResponse: [],
     archetypeArray: [],
-    // changeArchetype(arch) {
-    //     if (arch === "") {
-    //         this.archetype = "";
 
-    //     } else {
-    //         this.archetype = "&archetype=" + arch
-    //         console.log('changed')
-    //     }
-    // }
 })
 

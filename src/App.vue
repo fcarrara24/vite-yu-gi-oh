@@ -71,6 +71,14 @@ export default {
     // },
     loadArchetypeArray() {
 
+      axios
+        .get(store.partialUrl + store.midPoint.archetypeUrl)
+        .then((res) => {
+          store.archetypeArray = res.data.map((element) => {
+            return element.archetype_name
+          })
+        })
+      console.log(store.archetypeArray);
     },
     timended() {
       clearTimeout(this.timeOut)
@@ -79,6 +87,7 @@ export default {
   },
   created() {
     this.fillStore("");
+    this.loadArchetypeArray();
     // this.loadArchetype();
 
   },
