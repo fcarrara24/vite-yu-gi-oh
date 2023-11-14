@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
     "axios": "^1.6.1",
     "bootstrap": "^5.3.2",
     "scss": "^0.2.4",

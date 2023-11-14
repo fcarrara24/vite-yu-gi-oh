@@ -1,6 +1,7 @@
 <template>
   <div class="loadingScreen d-flex flex-row justify-content-center align-items-center" v-if="!loaded">
     <h1>loading</h1>
+    <i class="fa-solid fa-spinner fa-spin"></i>
   </div>
   <div class="allBg" v-show="loaded">
     <HeaderComponent />
@@ -32,11 +33,15 @@ export default {
         .get(store.partialUrl + store.offset + store.archetype)
         .then((response) => {
           store.cardResponse = response.data.data;
-          this.timeOut = setTimeout(this.timended(), 3000)
+
         })
         .catch(error => {
           console.log(error);
-        });
+        })
+        .finally(() => {
+          this.timeOut = setTimeout(this.timended(), 3000)
+        }
+        )
     },
     loadArchetype() {
       axios
