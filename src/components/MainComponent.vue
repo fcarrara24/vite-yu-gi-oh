@@ -1,14 +1,7 @@
 <template>
     <div>
 
-        <div class="container py-3  ">
-            <select name="archetype" v-model="selectedOption" id="selectOption" @change="changeArray()">
-                <option value=''>ALL</option>
-                <option v-for="archetype in archetypes" :value="archetype">
-                    {{ archetype }}
-                </option>
-            </select>
-        </div>
+
 
         <div></div>
         <div class="container bg-white p-5 ">
@@ -25,25 +18,19 @@
 </template>
 
 <script>
-import { archetypes } from "../data/archetypeList";
-import { store, storeArchetype } from "../data/store.js"
+
+import { store } from "../data/store.js"
 import CardComponent from "./CardComponent.vue";
 export default {
     name: "HeaderComponent",
     data() {
         return {
             store,
-            storeArchetype,
-            archetypes,
             selectedOption: ''
         }
     },
     methods: {
-        changeArray() {
-            console.log(this.selectedOption)
-            store.changeArchetype(this.selectedOption)
-            this.$emit('changed-array')
-        }
+
     },
     created() {
     },

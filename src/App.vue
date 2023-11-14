@@ -5,17 +5,19 @@
   </div>
   <div class="allBg" v-show="loaded">
     <HeaderComponent />
-    <MainComponent @changed-array="fillStore()" />
+    <SelectComponent @changed-array="fillStore()" />
+    <MainComponent />
     <FooterComponent />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import { store, storeArchetype } from './data/store.js'
+import { store } from './data/store.js'
 import MainComponent from './components/MainComponent.vue'
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
+import SelectComponent from './components/SelectComponent.vue';
 export default {
   name: "App",
   data() {
@@ -43,23 +45,23 @@ export default {
         }
         )
     },
-    loadArchetype() {
-      axios
-        .get(storeArchetype.Url)
-        .then((response) => {
-          console.log(response.data.data)
-          response.data.data.forEach(element => {
-            if (!storeArchetype.archeTypeResponse.includes(element.archetype)) {
-              storeArchetype.archeTypeResponse.push(element.archetype)
-            }
-          });
+    // loadArchetype() {
+    //   axios
+    //     .get(storeArchetype.Url)
+    //     .then((response) => {
+    //       console.log(response.data.data)
+    //       response.data.data.forEach(element => {
+    //         if (!storeArchetype.archeTypeResponse.includes(element.archetype)) {
+    //           storeArchetype.archeTypeResponse.push(element.archetype)
+    //         }
+    //       });
 
-          console.log(storeArchetype)
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
+    //       console.log(storeArchetype)
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //     });
+    // },
     timended() {
       clearTimeout(this.timeOut)
       this.loaded = true
@@ -71,7 +73,7 @@ export default {
 
   },
 
-  components: { MainComponent, HeaderComponent, FooterComponent }
+  components: { MainComponent, HeaderComponent, FooterComponent, SelectComponent }
 }
 </script>
 

@@ -16,7 +16,3 @@ export const store = reactive({
     }
 })
 
-export const storeArchetype = reactive({
-    Url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?",
-    archeTypeResponse: [],
-})
