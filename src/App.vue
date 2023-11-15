@@ -7,7 +7,7 @@
     <HeaderComponent />
     <SelectComponent @changed-array="fillStore" />
     <MainComponent />
-    <FooterComponent @refreshed-array="fillStore" />
+    <FooterComponent />
   </div>
 </template>
 
@@ -29,8 +29,9 @@ export default {
   },
   methods: {
     fillStore(archetype) {
-      console.log(archetype)
+      console.log('step2')
       this.loaded = false;
+      console.log(archetype)
       //creazione dell'archetipo 
       if (archetype !== "" && archetype !== null) {
         this.store.endPoint.archetype = archetype

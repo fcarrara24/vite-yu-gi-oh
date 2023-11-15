@@ -1,7 +1,6 @@
 <template class>
-    <div class="d-flex flex-row justify-content-between container">
-        <div class="button bg-primary p-2" @click="decreaseOffset">↞</div>
-        <div class="button bg-primary p-2" @click="increaseOffset">↠</div>
+    <div class="d-flex flex-row justify-content-between container footerPart">
+
 
     </div>
 </template>
@@ -13,18 +12,12 @@ export default {
     data() {
 
 
-        return {}
+        return {
+            store,
+        }
     },
     methods: {
-        increaseOffset() {
-            store.offset += 20
-            this.$emit = ('refreshed-array', store.endPoint.archetype)
-        },
-        decreaseOffset() {
-            if (store.offset >= 20) {
-                store.offset -= 20
-            }
-        }
+
     }
 }
 </script>
